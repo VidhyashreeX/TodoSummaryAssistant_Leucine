@@ -1,10 +1,10 @@
 import axios from "axios";
 
 // Using Slack webhook instead of Bot Token
-const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL || "SLACK_WEBHOOK";
+const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
 
-if (!SLACK_WEBHOOK_URL || SLACK_WEBHOOK_URL === "SLACK_WEBHOOK") {
-  console.warn("SLACK_WEBHOOK_URL environment variable is not properly set. Slack integration will use a fallback URL.");
+if (!SLACK_WEBHOOK_URL) {
+  console.warn("SLACK_WEBHOOK_URL environment variable is not set. Slack integration will not work.");
 }
 
 /**
@@ -13,10 +13,10 @@ if (!SLACK_WEBHOOK_URL || SLACK_WEBHOOK_URL === "SLACK_WEBHOOK") {
  * @returns Promise resolving to the success status
  */
 export async function sendSummaryToSlack(summary: string): Promise<{ success: boolean; message: string }> {
-  if (!SLACK_WEBHOOK_URL || SLACK_WEBHOOK_URL === "SLACK_WEBHOOK") {
+  if (!SLACK_WEBHOOK_URL) {
     return { 
       success: false, 
-      message: "Slack webhook URL is not properly configured."
+      message: "Slack webhook URL is not configured. Please set the SLACK_WEBHOOK_URL environment variable."
     };
   }
 
