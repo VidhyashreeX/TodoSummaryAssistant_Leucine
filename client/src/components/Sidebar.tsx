@@ -23,44 +23,17 @@ const Sidebar: React.FC = () => {
               Tasks
             </Link>
           </li>
-          <li className="mb-2">
-            <Link 
-              href="#"
-              className="flex items-center p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
-            >
-              <span className="material-icons mr-3">bar_chart</span>
-              Statistics
-            </Link>
-          </li>
-          <li className="mb-2">
-            <Link 
-              href="#"
-              className="flex items-center p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
-            >
-              <span className="material-icons mr-3">calendar_month</span>
-              Calendar
-            </Link>
-          </li>
-          <li className="mb-2">
-            <Link 
-              href="#"
-              className="flex items-center p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
-            >
-              <span className="material-icons mr-3">settings</span>
-              Settings
-            </Link>
-          </li>
         </ul>
       </nav>
-      <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-200">
-        <div className="flex items-center">
-          <div className="w-10 h-10 rounded-full bg-slate-300 flex items-center justify-center text-white">
-            <span className="material-icons">person</span>
-          </div>
-          <div className="ml-3">
-            <p className="text-sm font-medium text-slate-700">User</p>
-            <p className="text-xs text-slate-500">Free Account</p>
-          </div>
+      <div className="p-4 mt-6">
+        <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-100">
+          <h3 className="font-medium text-indigo-700 mb-2 flex items-center">
+            <span className="material-icons mr-2 text-sm">tips_and_updates</span>
+            Quick Tip
+          </h3>
+          <p className="text-sm text-indigo-600">
+            Use the "Generate Summary" button to create a quick overview of your pending tasks.
+          </p>
         </div>
       </div>
     </aside>
