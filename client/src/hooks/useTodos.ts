@@ -8,11 +8,11 @@ export function useTodos() {
   
   // Fetch all todos
   const {
-    data: todos = [],
+    data: todos = [] as Todo[],
     isLoading,
     isError,
     error,
-  } = useQuery({
+  } = useQuery<Todo[]>({
     queryKey: ['/api/todos'],
   });
 

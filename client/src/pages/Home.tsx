@@ -36,7 +36,7 @@ const HomePage: React.FC = () => {
 
   // Filter todos
   const filteredTodos = todos
-    .filter(todo => {
+    .filter((todo: Todo) => {
       // Apply search filter
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
       }
       return true;
     })
-    .filter(todo => {
+    .filter((todo: Todo) => {
       // Apply status filter
       if (filterStatus === 'pending') return !todo.completed;
       if (filterStatus === 'completed') return todo.completed;
