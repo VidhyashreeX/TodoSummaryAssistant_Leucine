@@ -1,45 +1,31 @@
-import { WebClient } from "@slack/web-api";
+import axios from "axios";
 
-if (!process.env.SLACK_BOT_TOKEN) {
-  console.warn("SLACK_BOT_TOKEN environment variable is not set. Slack integration will not work.");
+// Using Slack webhook instead of Bot Token
+const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL || "SLACK_WEBHOOK";
+
+if (!SLACK_WEBHOOK_URL || SLACK_WEBHOOK_URL === "SLACK_WEBHOOK") {
+  console.warn("SLACK_WEBHOOK_URL environment variable is not properly set. Slack integration will use a fallback URL.");
 }
-
-if (!process.env.SLACK_CHANNEL_ID) {
-  console.warn("SLACK_CHANNEL_ID environment variable is not set. Slack integration will not work.");
-}
-
-// Create Slack client only if token is provided
-const slackClient = process.env.SLACK_BOT_TOKEN 
-  ? new WebClient(process.env.SLACK_BOT_TOKEN)
-  : null;
 
 /**
- * Sends a todo summary to Slack
+ * Sends a todo summary to Slack using a webhook
  * @param summary Summary text to send to Slack
  * @returns Promise resolving to the success status
  */
 export async function sendSummaryToSlack(summary: string): Promise<{ success: boolean; message: string }> {
-  if (!slackClient) {
+  if (!SLACK_WEBHOOK_URL || SLACK_WEBHOOK_URL === "SLACK_WEBHOOK") {
     return { 
       success: false, 
-      message: "Slack integration is not configured. Please set SLACK_BOT_TOKEN and SLACK_CHANNEL_ID environment variables."
-    };
-  }
-
-  if (!process.env.SLACK_CHANNEL_ID) {
-    return { 
-      success: false, 
-      message: "SLACK_CHANNEL_ID environment variable is not set."
+      message: "Slack webhook URL is not properly configured."
     };
   }
 
   try {
-    const channel = process.env.SLACK_CHANNEL_ID;
     const currentDate = new Date().toLocaleString();
 
-    const result = await slackClient.chat.postMessage({
-      channel,
-      text: `*Todo Summary (${currentDate})*`,
+    // Prepare the payload for Slack webhook
+    const payload = {
+      text: `Todo Summary (${currentDate})`,
       blocks: [
         {
           type: "header",
@@ -66,15 +52,28 @@ export async function sendSummaryToSlack(summary: string): Promise<{ success: bo
           ]
         }
       ]
+    };
+
+    // Send to Slack using webhook
+    const response = await axios.post(SLACK_WEBHOOK_URL, payload, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
 
-    if (result.ok) {
+    if (response.status === 200) {
       return { success: true, message: "Summary sent to Slack successfully" };
     } else {
-      return { success: false, message: `Failed to send to Slack: ${result.error || "Unknown error"}` };
+      return { 
+        success: false, 
+        message: `Failed to send to Slack: HTTP status ${response.status}` 
+      };
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error sending to Slack:", error);
-    return { success: false, message: `Error sending to Slack: ${error.message}` };
+    return { 
+      success: false, 
+      message: `Error sending to Slack: ${error.message}` 
+    };
   }
 }
