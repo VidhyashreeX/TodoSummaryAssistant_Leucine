@@ -42,7 +42,7 @@ const TaskControls: React.FC<TaskControlsProps> = ({
         
         <button 
           onClick={onAddTaskClick}
-          className="px-4 py-2 bg-accent text-white rounded-lg shadow-sm hover:bg-rose-600 transition-colors flex items-center justify-center"
+          className="px-4 py-2 bg-accent text-accent-foreground rounded-lg shadow-md hover:bg-emerald-500 hover:shadow-lg transition-all flex items-center justify-center font-medium"
         >
           <span className="material-icons mr-2">add</span>
           Add Task
