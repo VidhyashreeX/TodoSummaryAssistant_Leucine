@@ -237,7 +237,7 @@ const HomePage: React.FC = () => {
       <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 md:ml-64 p-4 md:p-8">
+      <main className="flex-1 md:ml-64 p-4 md:p-8 bg-background dark:bg-background">
         {/* Header */}
         <header className="mb-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
