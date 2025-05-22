@@ -1,28 +1,36 @@
 # Todo Summary Assistant - Project Requirements
 
-## Node.js Dependencies
+## Core Requirements
 
-### Core Dependencies
-- nodejs: v18.0.0 or higher
+### Runtime Environment
+- Node.js: v18.0.0 or higher
 - npm: v9.0.0 or higher
 
-### Frontend Dependencies
+### Frontend Core
 - react: ^18.2.0
 - react-dom: ^18.2.0
 - typescript: ^5.0.0
-- tailwindcss: ^3.3.0
-- @tailwindcss/typography: ^0.5.9
-- framer-motion: ^10.12.4
+- vite: ^5.0.0
+
+### Backend Core
+- express: ^4.18.0
+- @types/express: ^4.17.0
+
+### Database
+- @neondatabase/serverless: ^0.10.4
+
+### API Integration
+- axios: ^1.9.0
+- @slack/web-api: ^7.9.2
+
+### Form Handling & Validation
 - react-hook-form: ^7.43.9
 - zod: ^3.21.4
-- @hookform/resolvers: ^3.1.0
-- react-icons: ^4.8.0
-- lucide-react: ^0.244.0
-- @radix-ui/* components: ^1.0.0 (various UI components)
-- clsx: ^1.2.1
-- tailwind-merge: ^1.12.0
-- class-variance-authority: ^0.6.0
-- @tanstack/react-query: ^5.8.4
+
+### UI Framework
+- tailwindcss: ^3.3.0
+- @radix-ui/react-dialog: ^1.1.7
+- @radix-ui/react-toast: ^1.2.7
 - wouter: ^2.11.0
 - next-themes: ^0.2.1
 
@@ -45,52 +53,3 @@
 - esbuild: ^0.17.19 (for TypeScript compilation)
 - postcss: ^8.4.23
 - autoprefixer: ^10.4.14
-
-## External Service Requirements
-
-### Slack Integration
-- Slack Webhook URL for sending messages
-- (Optional) Slack Bot Token for more advanced integrations
-
-### AI Integration (One of the following)
-- OpenAI API key for GPT models
-- DeepSeek API key for cost-effective LLM integration
-- HuggingFace API token for open-source models
-
-## System Requirements
-
-### Development Environment
-- Memory: 4GB RAM minimum, 8GB recommended
-- Storage: 1GB available disk space
-- CPU: Dual-core processor or better
-- Operating System: Windows 10/11, macOS 10.15+, or Linux
-
-### Production Environment
-- Similar to development, with additional requirements based on expected load
-- Recommended to deploy on cloud platforms (Replit, Vercel, Netlify, etc.)
-
-## Browser Compatibility
-- Chrome (latest 2 versions)
-- Firefox (latest 2 versions)
-- Safari (latest 2 versions)
-- Edge (latest 2 versions)
-
-## Network Requirements
-- Outbound access to:
-  - api.slack.com (for Slack integration)
-  - api.openai.com (if using OpenAI)
-  - api.deepseek.com (if using DeepSeek)
-  - huggingface.co (if using HuggingFace)
-
-## Security Requirements
-- HTTPS for production deployments
-- Secure storage of API keys and tokens
-- Input validation for all form fields
-- XSS protection
-
-## Accessibility Requirements
-- WCAG 2.1 AA compliance
-- Keyboard navigation support
-- Screen reader compatibility
-- Sufficient color contrast
-- Responsive design for mobile devices

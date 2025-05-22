@@ -31,7 +31,7 @@ const ToastNotification: React.FC<ToastNotificationProps> = ({
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 max-w-xs w-full bg-white rounded-lg shadow-lg border border-slate-200 p-4 flex items-start transition-all transform translate-y-0 opacity-100">
+    <div className="fixed bottom-4 left-4 z-50 max-w-xs w-full bg-white rounded-lg shadow-lg border border-slate-200 p-4 flex items-start transition-all transform translate-y-0 opacity-100">
       <div className="flex-shrink-0 mr-3">
         {getIconByType(type)}
       </div>

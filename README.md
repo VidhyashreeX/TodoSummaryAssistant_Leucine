@@ -2,7 +2,9 @@
 
 A full-stack application that allows you to manage tasks, generate AI-powered summaries, and share them to Slack.
 
-![Todo Summary Assistant](https://github.com/yourusername/todo-summary-assistant/raw/main/screenshot.png)
+## Demo
+
+![Todo Summary Assistant Demo](https://shorturl.at/yEydQ)
 
 ## Features
 
@@ -39,61 +41,14 @@ A full-stack application that allows you to manage tasks, generate AI-powered su
 
 ### Installation
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/yourusername/todo-summary-assistant.git
-   cd todo-summary-assistant
-   ```
-
-2. Install dependencies:
+1. Install dependencies:
    ```
    npm install
    ```
 
-3. Create a `.env` file in the root directory with the following variables:
-   ```
-   # DeepSeek API for AI summaries (optional but recommended)
-   DEEPSEEK_API_KEY=your_deepseek_api_key
-   
-   # Slack integration (optional)
-   SLACK_WEBHOOK_URL=your_slack_webhook_url
-   ```
-
-4. Start the development server:
+2. Start the development server:
    ```
    npm run dev
-   ```
-
-5. Open your browser and navigate to `http://localhost:5000`
-
-## Setting Up Integrations
-
-### DeepSeek AI Integration
-
-The application uses DeepSeek's API to generate intelligent summaries of your tasks. To set this up:
-
-1. Sign up for an account at [DeepSeek AI](https://www.deepseek.com/)
-2. Navigate to API keys section and create a new API key
-3. Add your API key to the `.env` file:
-   ```
-   DEEPSEEK_API_KEY=your_deepseek_api_key
-   ```
-
-If you don't provide a DeepSeek API key, the application will fall back to a basic summary generator, which will still work but won't provide AI-powered insights.
-
-### Slack Integration
-
-To enable sending summaries to Slack:
-
-1. Go to [Slack API Apps Page](https://api.slack.com/apps)
-2. Click "Create New App" and choose "From scratch"
-3. Name your app and select your workspace
-4. From the sidebar, select "Incoming Webhooks" and toggle "Activate Incoming Webhooks" to ON
-5. Click "Add New Webhook to Workspace" and select the channel where summaries should be posted
-6. Copy the Webhook URL provided
-7. Add your webhook URL to the `.env` file:
-   ```
-   SLACK_WEBHOOK_URL=your_slack_webhook_url
    ```
 
 ## Design and Architecture Decisions
@@ -136,37 +91,3 @@ The backend follows a RESTful API architecture with these key decisions:
 3. **External Integrations**:
    - DeepSeek AI for intelligent summarization with fallback mechanism
    - Slack webhooks for simple, reliable message sending
-
-### UI/UX Decisions
-
-1. **Color Scheme**: 
-   - Primary color for main actions
-   - Accent (green) color for task creation
-   - Clear contrast between interactive and static elements
-   - Dark mode support for user preference
-
-2. **Interaction Design**:
-   - Modal-based task creation/editing for focused interaction
-   - Immediate feedback for all user actions
-   - Clear loading states during async operations
-
-3. **Information Architecture**:
-   - Tasks are central to the experience
-   - Summary panel provides AI-generated insights
-   - Simple, focused sidebar navigation
-
-## Deployment
-
-This application can be deployed to any Node.js hosting platform:
-
-1. **Vercel/Netlify**: Ideal for frontend deployment
-2. **Heroku/Railway**: Good options for full-stack deployment
-3. **Docker**: Container setup available for custom deployments
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
