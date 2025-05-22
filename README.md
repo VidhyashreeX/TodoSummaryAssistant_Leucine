@@ -3,8 +3,7 @@
 A full-stack application that allows you to manage tasks, generate AI-powered summaries, and share them to Slack.
 
 ## Demo
-
-![Todo Summary Assistant Demo](https://shorturl.at/yEydQ)
+(https://shorturl.at/yEydQ)
 
 ## Features
 
