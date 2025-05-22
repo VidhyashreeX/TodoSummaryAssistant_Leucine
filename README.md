@@ -4,7 +4,7 @@ A full-stack application that allows you to manage tasks, generate AI-powered su
 
 ## Demo
 (https://shorturl.at/yEydQ)
-
+Snapshots of the application : (https://shorturl.at/eGK0G)
 ## Features
 
 - ✅ Create, edit, and delete tasks with title, description, due date, and category
